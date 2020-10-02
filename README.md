@@ -46,6 +46,7 @@ access_token_secret = "xxxx"
 
 Assuming you have Python up and running, you may need to install a few libraries, if you have not installed them already for other projects. 
 
+```
 import tweepy
 import TextBlob
 import pandas
@@ -58,6 +59,7 @@ import traceback
 import warnings
 import statistics
 import matplotlib.pyplot
+```
 
 If you are not sure which ones you need to install, just run the program and the error messages will tell you which libraries you are missing. 
 
@@ -90,11 +92,11 @@ The program requires three csv files with keywords:
 
 Popular keywords in the files are:
 
-Claims: research, healthy, support, better, data, review, because, evidence, must, never ...
+1. Claims: research, healthy, support, better, data, review, because, evidence, must, never ...
 
-Medical: covid19, healthy, coronavirus, patients, pandemic, cancer, disease, vaccine, heart, medical, diabetes, medicine, clinical ...
+2. Medical: covid19, healthy, coronavirus, patients, pandemic, cancer, disease, vaccine, heart, medical, diabetes, medicine, clinical ...
 
-Nutritional: health, food, nutrition, diet, eating, exercise, weight, eat, foods, obesity, protein, fat, sugar, diets, dietary, plantbased, meat ...
+3. Nutritional: health, food, nutrition, diet, eating, exercise, weight, eat, foods, obesity, protein, fat, sugar, diets, dietary, plantbased, meat ...
 
 
 You can use your own keyword lists if you wish. The files simply have one column with keywords in them. 
@@ -106,9 +108,9 @@ The program produces multiple csv file as well as some png files.
 
 ### Csv files and headers
 
-'health_tweets-Health-<Date_time>.csv' contains all the tweets that could be retrieved.
-'health_user_info-Health-<Date_time>.csv' contains a summary of each of the users in the list.
-'word_freq-Health-<Date_time>.csv' contains the counts of the words which match the keywords.
+1. 'health_tweets-Health-<Date_time>.csv' contains all the tweets that could be retrieved.
+2. 'health_user_info-Health-<Date_time>.csv' contains a summary of each of the users in the list.
+3. 'word_freq-Health-<Date_time>.csv' contains the counts of the words which match the keywords.
 
 
 The health_tweets file has the headings:
