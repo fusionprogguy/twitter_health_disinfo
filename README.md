@@ -78,6 +78,18 @@ Then type in "python TwitterUserName.py"
 python TwitterUserName.py
 ```
 
+### Twitter List
+
+The current code allows you to scrape data from your own list. You supply your username and the name of the twitter list that you own. For example if your twitter handle is @FusionProgGuy, and your list is called 'Health', then your code would be as follows:
+
+```
+# which Twitter list and who owns it
+twitter_user = 'fusionprogguy'  # 'fusionprogguy'
+twitter_health_list = 'Health'  # 'Education'
+```
+
+When added your own account details, in the python file, the code should run without error. 
+
 
 ### Keyword Lists
 
@@ -92,7 +104,7 @@ The program requires three csv files with keywords:
 
 Popular keywords in the files are:
 
-1. Claims: research, healthy, support, better, data, review, because, evidence, must, never ...
+1. Claims: research, healthy, support, better, data, review, because, evidence, must, never, cause, creates ...
 
 2. Medical: covid19, healthy, coronavirus, patients, pandemic, cancer, disease, vaccine, heart, medical, diabetes, medicine, clinical ...
 
@@ -102,9 +114,37 @@ Popular keywords in the files are:
 You can use your own keyword lists if you wish. The files simply have one column with keywords in them. 
 
 
+
+The claims file is likely going to be the most useful for any project in which you are seeking to find people making claims about the subject matter you are interested in.
+
+For example:
+
+"Sugar causes cancer" should be picked up as a claim ("causes") about medicine ("cancer") and nutrition ("sugar").
+
+Whereas the tweets:
+
+"Chicken Sweet Potato and Butternut Squash Hash Recipe" has no claim although it contains keywords about nutrition. 
+
+"Mitochondria and stress + <link>" has a medical keyword ("Mitochondria") and one I've assigned to nutrition ("stress"), but there is no claim. 
+
+
+Of course these filters are very basic because there is no appreciation of sentence structure and there are likely to be false negatives, but in my case, with 1400 users, and up to 200 tweets being retrieved for each, the number of tweets revieved can be over 100,000 tweets without strong filters. 
+
+
+This tweet is currently a false negative claim:
+
+"The pandemic is giving people what they want - flexible working"
+
+It has a claim "is giving people what they want", but there is no keyword for this, so it is not recognised as a claim. 
+
+
+All of the keyword lists can be improved, but it takes time to find words which may be missing. The best way to improve them is to check the tweets to see if they wrongly trigger as False when you believe they should be included. 
+
+
 ## Output
 
-The program produces multiple csv file as well as some png files. 
+The program produces multiple csv file as well as some png files.
+
 
 ### Csv files and headers
 
@@ -114,15 +154,59 @@ The program produces multiple csv file as well as some png files.
 
 
 The health_tweets file has the headings:
-claim,medical, nutrition, polarity, subjectivity, name, qualification, date, tweet
+claim, medical, nutrition, polarity, subjectivity, name, qualification, date, tweet
+
+Here is a sample of what you might see in the table. 
+
+| claim | medical | nutrition | polarity | subjectivity | name                     | qualification | date     | tweet                                                                                                                                                                                                                                                                                                                | flu | covid | both |
+|-------|---------|-----------|----------|--------------|--------------------------|---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|-------|------|
+| TRUE  | TRUE    | TRUE      | 0.075    | 0.645833     | Avi Bitterman, MD        | MD            | ######## | The Ornish MPI study doesnt show statistically   significant improvement in blood flow in the experimental group The results   are only statistically significant because the control group got   substantially worse Its the same problem as EVAPORATE trial This is NOT   reversal                                 | 0   | 0     | 0    |
+| TRUE  | TRUE    | FALSE     | 0.068182 | 0.352273     | Julia Marcus, PhD, MPH   | MPH, PhD      | ######## | SARSCoV2 transmission risk is not equally   distributed and policies should be designed accordingly Thread on our new   paper https://t.co/dz7qhBbhlG                                                                                                                                                                | 0   | 0     | 0    |
+| TRUE  | TRUE    | TRUE      | 0.055556 | 0.200397     | Dawna Mughal PhD RDN     | PhD, RDN      | ######## | Sarcopenia and physical independence in older   adults the independent and synergic role of muscle mass and muscle function   https://t.co/Hi5Rn4CyPO                                                                                                                                                                | 0   | 0     | 0    |
+| TRUE  | TRUE    | TRUE      | 0.166667 | 0.308333     | Alex Leaf                |               | ######## | Yes Type 2 diabetes is the apex of insulin   resistance which is most often caused by surpassing ones personal fat   threshold Blood sugar and insulin levels would be lower but insulin   resistance would be the same https://t.co/LPSQxcyffU                                                                      | 0   | 0     | 0    |
+| TRUE  | TRUE    | TRUE      | 0.170833 | 0.554167     | Alex Leaf                |               | ######## | The only logical explanation is that eliminating   spices made food less palatable and therefore caused a spontaneous reduction   of food intake https://t.co/iZAK2LBA2N                                                                                                                                             | 0   | 0     | 0    |
+| TRUE  | TRUE    | TRUE      | 0        | 1            | Koushik Reddy, MD, FACLM | FACLM, MD     | ######## | Effect of icosapent ethyl on progression of   coronary atherosclerosis in patients with elevated triglycerides on statin   therapy final results of the EVAPORATE trial https://t.co/BtVghjFkHu                                                                                                                      | 0   | 0     | 0    |
+| TRUE  | TRUE    | TRUE      | 0.166667 | 0.333333     | Clemens ZsÃ³fia, PhD     | PhD           | ######## | Did you know that vitamin D deficiency is more   prevalent in Southern Europe than in Nothern Europe Vitamin D deficiency is   on the rise in Africa Not enough sun https://t.co/aovrvEH2Ig                                                                                                                          | 0   | 0     | 0    |
+| TRUE  | TRUE    | FALSE     | 0        | 0            | BBC Health News          |               | ######## | Coronavirus immunity Can you catch it twice   https://t.co/Z3s39vla46                                                                                                                                                                                                                                                | 0   | 0     | 0    |
+
+
 
 
 The health_user file has the headings:
 name, clean_name, screen_name	gender, qualification, bio, polarity, sentiment, followers_count, following_count, Status:Followers, Follower:Following	acct_created, location, status_count, user_url, count_retrieved, count_RT, count_claim, count_medical, count_nutrition
 
+Here is a sample user details that you might see in the table. 
+
+| name                 | clean_name        | screen_name    | gender  | qualification | bio                                                                                                                                                    | polarity   | sentiment  | followers_count | following_count | Status:Followers | Follower:Following | acct_created | location                | status_count | user_url                | count_retrieved | count_RT | count_claim | count_medical | count_nutrition |
+|----------------------|-------------------|----------------|---------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|------------|------------|-----------------|-----------------|------------------|--------------------|--------------|-------------------------|--------------|-------------------------|-----------------|----------|-------------|---------------|-----------------|
+| Health Nerd          | Health Nerd       | GidMK          | unknown |               | Epidemiologist Blogger Writer Guardian Observer etc PhDing at   @UoW Host of @senscipod Email gidmkhealthnerd@gmailcom he/him                          | 0.10416667 | 0.42       | 21540           | 1276            | 2.41917363       | 16.8808777         | 13/11/2015   | Sydney, New South Wales | 52109        | https://t.co/onN0CN3Iw4 | 47              | 29       | 107         | 42            | 16              |
+| Danielle Belardo, MD | Danielle Belardo  | DBelardoMD     | female  | MD            | Director of Cardiology at IOPBM  CoDirector of Research & Education   @learnwithiopbm preventionfirst                                                  | 0          | 0.36666667 | 34563           | 2533            | 0.23409426       | 13.6450849         | 13/05/2018   | Newport Beach, CA       | 8091         | https://t.co/qC3BWlXffQ | 95              | 83       | 116         | 77            | 39              |
+| Alex Leaf            | Alex Leaf         | AlexJLeaf      | male    |               | Scholar of nutrition researcher writer INTJ                                                                                                            | 0.09166667 | 0.46       | 1326            | 74              | 1.14404223       | 17.9189189         | 26/12/2018   | Scottsdale, AZ          | 1517         | https://t.co/3g8hroYniE | 42              | 17       | 143         | 46            | 77              |
+| Nick Hiebert         | Nick Hiebert      | The_Nutrivore  | male    |               | Creator of the Nutrient Density Cheat Sheet                                                                                                            | 0.025      | 0.38125    | 1888            | 175             | 11.5497881       | 10.7885714         | 13/04/2017   | Manitoba, Canada        | 21806        | https://t.co/UbrOPJENII | 21              | 7        | 64          | 15            | 26              |
+| Ivor Cummins         | Ivor Cummins      | FatEmperor     | male    |               | Technical Manager / Team Leader Biochemical Engineer Complex   Problem Solving Specialist Technologist Biochemistry Nutrition LCHF CAC CVD   RootCause | 0          | 0.33863636 | 89550           | 10903           | 0.84014517       | 8.21333578         | 11/03/2014   | Ireland                 | 75235        | http://t.co/tVfArmbN3L  | 153             | 126      | 200         | 62            | 15              |
+| Nina Teicholz        | Nina Teicholz     | bigfatsurprise | female  |               | Science journalist author of The Big Fat Surprise advocate for   nutrition policy based on rigorous science mom                                        | 0.00331439 | 0.39166667 | 93685           | 1132            | 0.20616961       | 82.7606007         | 5/02/2014    | NYC                     | 19315        | https://t.co/cNnWOtVZEB | 68              | 28       | 222         | 69            | 126             |
+| Stephan Guyenet, PhD | Stephan Guyenet   | whsource       | male    | PhD           | The neuroscience of eating behavior and obesity  Author of The Hungry Brain  Founder and director of Red Pen Reviews                                   | 0.09345238 | 0.53624339 | 37788           | 196             | 0.3227215        | 192.795918         | 11/04/2011   | Seattle, WA             | 12195        | https://t.co/8xY8Ra4CYm | 32              | 10       | 97          | 56            | 32              |
+| Dr. Rhonda Patrick   | Rhonda Patrick    | foundmyfitness | female  | Dr.           | Im a PhD in biomedical science/expert on nutritional health   brain & aging http://t.co/VdqjL1RpZE                                                     | 0.13636364 | 0.45454546 | 328608          | 157             | 0.02392212       | 2093.04459         | 18/08/2009   |                         | 7861         | http://t.co/r3kuO77157  | 114             | 6        | 458         | 469           | 275             |
+| Timothy Caulfield    | Timothy Caulfield | CaulfieldTim   | male    |               | Professor of health law & science policy speaker TV host   & author of the forthcoming book Relax Dammit Instagram @CaulfieldTim   GoScience           | 0          | 0.2        | 60927           | 2946            | 1.05458992       | 20.6812627         | 8/11/2011    | Edmonton Canada         | 64253        | https://t.co/HaxLtmuETK | 144             | 52       | 263         | 137           | 78              |
+
+
 
 The word_freq file has the headings:
 Word, freq, list1, list2, list3
+
+Here is a sample of the top word frequencies that you might see in the table. 
+
+| Word        | freq  | list1     | list2      | list3      |
+|-------------|-------|-----------|------------|------------|
+| covid19     | 10545 | medical   |            |            |
+| health      | 9881  | nutrition |            |            |
+| food        | 5286  | nutrition |            |            |
+| research    | 4447  | claim     |            |            |
+| nutrition   | 4111  | nutrition |            |            |
+| diet        | 3011  | claim     |  nutrition |            |
+| healthy     | 2827  | claim     |  medical   |  nutrition |
+| coronavirus | 2796  | medical   |            |            |
+
 
 
 ### Filters 
