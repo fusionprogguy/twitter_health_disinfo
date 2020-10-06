@@ -1,447 +1,3 @@
-#acnap
-#acsm21
-#activearth
-#actonncds
-#adhd
-#adrenalfatigue
-#ag
-#aging
-#agvocate
-#ahww2017
-#aicr
-#airquality
-#ajcn
-#allergies
-#alzheimers
-#alzheimersdisease
-#anesthesiologists
-#anesthesiology
-#antiaging
-#antidepressant
-#antidepressants
-#antivax
-#apd
-#aquaponics
-#arfid
-#arrhythmia
-#askalex
-#atherosclerosis
-#athletes
-#autistic
-#bariatrics
-#bariatricsurgery
-#besthospitals
-#biochemistry
-#biomedicalsciences
-#biostatistics
-#biotech
-#bowelcancer
-#brain
-#buckoffcancer
-#cac
-#cam
-#cancer
-#cancerkindness
-#cancerprevention
-#cancerresearch
-#cancersurvivor
-#cannabidiol
-#cardiacimaging
-#cardioed
-#cardiology
-#cardioobstetrics
-#carediscoverteach
-#cdc
-#celiacdisease
-#certifieddiabeteseducator
-#cervicalcancer
-#chemotherapy
-#childhoodcancer
-#chronicdisease
-#clinical
-#clinicaltrial
-#clinicaltrials
-#clinicians
-#cmr
-#cohealth15
-#coloncancer
-#colorectal_cancer
-#colorectalcancer
-#commoncold
-#communityhealth
-#communitypharmacists
-#computationalnutrition
-#concussionbrain
-#congenitalheartdisease
-#constipation
-#cornellalum
-#coronacrisis
-#coronaoutbreak
-#coronaquarantine
-#coronaravirus
-#coronavirus
-#coronavirusaustralia
-#coronaviruses
-#coronavirusinsa
-#corporatepower
-#covid19
-#covid19au
-#covid19aus
-#covid19australia
-#covid19canada
-#covid19pandemic
-#covidmaternity
-#covidsafe
-#covidvaccine
-#crispr
-#critcare
-#critcarenutrition
-#crohns
-#crohnsdisease
-#cultureofhealth
-#cvd
-#cvprev
-#cysticfibrosis
-#cytokinestorm
-#cytology
-#davylab
-#dementia
-#digitalhealth
-#disease
-#diseases
-#diseasesofcivilization
-#doctorslog
-#doubledoc
-#drroyrants
-#drugs
-#eapc_esc
-#eatsafe
-#ebm
-#ebola
-#echofirst
-#ecigarettes
-#education
-#eids
-#ejpc
-#empoweringneurologist
-#endableism
-#endoscopynews
-#environmental
-#epidemiologist
-#epidemiology
-#epigenetic
-#epigenetics
-#epitwitter
-#epitwitter…
-#equity
-#esccongress
-#esccongress2020
-#escguidelines
-#essaconf12
-#ethicsofcare
-#euhealthresearch
-#exacademic
-#exercise
-#eyehealth
-#factfad
-#fbpe
-#fdaapproves
-#foamed
-#genomics
-#globalhealth
-#goodbacteria
-#goodtrouble
-#govepi
-#greenharvard
-#gssi
-#gundrymd
-#gutmicrobiome
-#gynhealth
-#haes
-#handwashing
-#health
-#health4nsw
-#healthcare
-#healthdisparities
-#healthforall
-#healthinequalities
-#healthinformatics
-#healthpolicy
-#healthpromotion
-#heartattack
-#heartdisease
-#heartfailure
-#hearthealth
-#heartweek
-#highbloodpressure
-#hiv
-#homeopathy
-#hospitals
-#hp2030
-#hpm
-#hpv
-#humanitarian
-#hydrationscience
-#hypertension2020
-#iarcpaper
-#ilooklikeasurgeon
-#immuneintolerance
-#immunity
-#immunotherapy
-#implementation
-#infectiousdisease
-#infectiousdiseases
-#infertility
-#informas
-#insulinresistance
-#integrative
-#internalmedicine
-#issn
-#it/#cisco
-#ivf
-#jacccasereports
-#jhsphalum
-#jnolive
-#kc
-#kef
-#keto
-#ketoreset
-#ketosis
-#kidneykardashian
-#laboratory
-#ladiesweneedtotalk
-#lakers
-#lancetglobalhealth
-#latinasinmedicine
-#lifemed16
-#lifespan
-#lifestylemedicine
-#lifestylesolutions
-#litfl
-#livercancer
-#liverdisease
-#livingwithms
-#lluh
-#longcovid
-#lungcancer
-#malaria
-#masks
-#masks4all
-#maskup
-#maskwearing
-#masterthemedia
-#maternalhealth
-#measles
-#meded
-#medicalconservative
-#medicalresearch
-#medicine
-#medtwitter
-#membersmovemedicine
-#menopause
-#mentalfatigue
-#mentalhealth
-#mentalwellbeing
-#mers
-#metabolic
-#metabolism
-#metformin
-#mhealth
-#microbiome
-#mitochondria
-#mitochondrial
-#motivationalinterviewing
-#mskd
-#mtwabp
-#multiplesclerosis
-#musclematters
-#nad
-#nadtwitter
-#natryfor5
-#ncds
-#ncga
-#neurodiversity
-#neuroscience
-#news
-#nhs
-#nicotinamideriboside
-#nma2020
-#nurses
-#nursetwitter
-#nursing
-#nutribollocks
-#occupational
-#opioid
-#opioids
-#oralhealth
-#osteoarthritis
-#osteoporosis
-#osteosarcopenia
-#ovariancancer
-#overlandpark
-#pancreaticcancer
-#pandemic
-#pandemics
-#parkinsons
-#pathologists
-#patients
-#patientzero
-#pcos
-#peptidechemistry
-#personalisedmedicine
-#pharmacy
-#physician
-#physicians
-#physiologist
-#physiology
-#placebo
-#placenta
-#plasma
-#positivenutrition
-#postdoc
-#practiceofmedicine
-#precisionmed
-#precisionmedicine
-#prediabetes
-#pregnancy
-#pregnant
-#prevention
-#prevention2021
-#preventionfirst
-#preventratherthancure
-#primarycare
-#princetonalumni
-#prostate
-#psilocybin
-#psychedelics
-#psychiatrist
-#psychiatry
-#publichealth
-#publichealthamppolicy
-#publichealthhaiku
-#publichealthnutrition
-#publichealthreports
-#pulmonaryhypertension
-#purduehhs
-#qldpol
-#quarantine
-#rd
-#rdap
-#rdchat
-#rdjc
-#rdn
-#rduk
-#reason
-#rechtgutemedizin
-#ref
-#registerednutritionist
-#rehab
-#rehabilitation
-#remdesivir
-#resistancetrainingismedicine
-#retailrd
-#rheumatoidarthritis
-#rice
-#rit
-#run
-#ruokday
-#ruokday2020
-#ruralhealth
-#safesleep
-#safetyfirst
-#sarcopenia
-#sars-cov
-#sarscov2
-#sayhername
-#schizophrenia
-#scicomm
-#science
-#scienceheroes
-#scienceissexy
-#scientist
-#scoliosis
-#sdoh
-#sepsis
-#setpoint
-#sexmatters
-#sexsteroids
-#skincancer
-#sleepapnea
-#sleeptwitter
-#smokefree
-#smoking
-#sportdietitian
-#sportmedicine
-#sportsmedicine
-#stand4science
-#stayhome
-#stem
-#stemcells
-#stemdiversity
-#stigma
-#strengthmatters
-#stress
-#stroke
-#sugar
-#suicide
-#supportwinc
-#t1d
-#t2d
-#tb
-#technology
-#telehealth
-#thefaceofcardiology…
-#themindgutconnection
-#thisispublichealth
-#tobaccocontrol
-#tobaccoindustrydocuments
-#trf
-#ttcot
-#tuf21ufc
-#tweetiatrician
-#type1
-#type1diabetes
-#ubcfoodsystem
-#uclaanesthesia
-#ucph
-#uf
-#umndriven
-#umnproud
-#vaccin
-#vaccination
-#vaccine
-#vaccines
-#vaccineswork
-#vaccins
-#vascularfunction
-#vestibularmigraine
-#victorianhearthospital
-#virus
-#vocortex
-#waswirklichwirkt
-#wearables
-#wearadamnmask
-#wearamasksavealife
-#wearepartners;
-#whycardiology#choosecardiology#ofcoursecardiology
-#wimsincovid
-#womencvhealth
-#womeninmedicine
-#womeninmedicinemonth
-#womenshealth
-#workplacehealth
-#worldcancerday
-#worldcancerday2020
-#worldheartday
-#worldhepatitisday
-#worldkidneyday
-#worldlungday
-#worldmentalhealthday
-#worldpatientsafetyday
-#worldpharmacistsday
-#worldsuicidepreventionday
-#yescct
-#yolobypass
 (#apd)
 (#biochemistry)
 (#food
@@ -453,13 +9,10 @@ abdomen
 abdominal
 abdominals
 abell-kendall
-abnormal
-abnormality
 abortion
 abrasion
 abscess
 accelerin
-accumulate
 acetaminophen
 achalasia
 ache
@@ -469,11 +22,16 @@ acid-base
 acidosis
 acids
 acl
+acnap
 acne
 acromegaly
+acsm21
+activearth
+actonncds
 acupuncture
 acute
 acute pain
+add
 addiction
 addictive
 adenitis
@@ -485,6 +43,7 @@ adhd
 adhesions
 adipogenesis
 adrenal
+adrenalfatigue
 adrenalin
 adrenocortical
 adrenocorticotropic
@@ -492,14 +51,22 @@ adrenoleukodystrophy
 adverse effects
 advil
 aerobic activity
+ag
 agent
 agglutination
 agglutinin
 agglutinins
+aging
+agvocate
 ahaptoglobulinemia
+ahpra
+ahww2017
+aicr
 aids
+airquality
 airway obstruction
 airways
+ajcn
 albumin
 alcohol
 alcoholics
@@ -526,7 +93,9 @@ als
 alternative therapies
 alveolar
 alveoli
+alzheimers
 alzheimer's disease
+alzheimersdisease
 ambiguous
 amblyopias
 amenorrhea
@@ -545,7 +114,6 @@ anal
 analysis
 anaphylaxis
 anatomical
-anchovies
 andrenogenital
 androgen
 androgenic
@@ -553,6 +121,8 @@ androgens
 anemia
 anencephaly
 anesthesia
+anesthesiologists
+anesthesiology
 aneuploidy
 aneurysm
 aneurysms
@@ -575,6 +145,7 @@ anovulation-failure
 antecedent
 anterior
 anterior cruciate ligament (acl) injuries
+antiaging
 antibiotic
 antibiotics
 antibodies
@@ -582,6 +153,7 @@ antibody
 anticancer
 anticoagulation
 anti-coagulation
+antidepressant
 antidepressants
 antidiuretic
 anti-diuretic
@@ -599,6 +171,7 @@ anti-seizure
 antiserum
 anti-ulcer
 anti-vaccine
+antivax
 anus
 anxiety
 anxious
@@ -606,6 +179,7 @@ aorta
 aortic
 aortic-valve
 aortoiliac
+apd
 aplastic
 apnea
 appendicitis
@@ -613,10 +187,13 @@ appendix
 appetite
 appointment
 appt
+aquaponics
 arachnoid
 arachnoiditis
+arfid
 arginosuccinic
 arrhenoblastoma
+arrhythmia
 arrhythmias
 arterial
 arterial-occlusive
@@ -628,6 +205,7 @@ arthritis
 arthritis/autoimmune
 arthroscopy
 ascites
+askalex
 asphyxia
 aspiration
 aspirin
@@ -640,10 +218,13 @@ astrocytoma
 astrocytomas
 ataxia-telangiectasia
 atherosclerosis
+athletes
 atopic
 attack
 attention
+attention deficit disorder
 autism
+autistic
 autoimmune
 auto-immune
 autoimmunity
@@ -656,12 +237,15 @@ bacteria
 bacterial
 barbells
 bariatric
+bariatrics
+bariatricsurgery
 battling
 bell's palsy
 benadryl
 benign
 benzodiazepines
 bernard-soulier
+besthospitals
 beta cells
 beta-blockers
 beta-thromboglobulin
@@ -686,6 +270,7 @@ biomarkers
 biomechanics
 biomechanist
 biomedical
+biomedicalsciences
 biometry
 biopsy
 biosciences
@@ -727,6 +312,7 @@ bone marrow
 boogers
 borborygmus
 botulism
+bowelcancer
 bowels
 braces
 brain
@@ -751,33 +337,44 @@ bruising
 bruxism
 btg
 b-thalassemia
+buckoffcancer
 "burn, first-degree"
 "burn, second-degree"
 "burn, third-degree"
 burning
 bypass
+cac
 cachexia
 calcification
 calculi
+cam
 cancer
 cancer treatments
 cancer-free
+cancerkindness
 cancerous
+cancerprevention
+cancerresearch
+cancersurvivor
 canine teeth
 canker sore
+cannabidiol
 cannabinoids
 cannabis
 capillaries
 capillary
 carcinoma
 cardiac
+cardiacimaging
 cardio
 cardiobrief
+cardioed
 cardiologist
 cardiologists
 cardiology
 cardiometabolic
 cardiomyopathy
+cardioobstetrics
 cardio-oncology
 cardiopulmonary
 cardiorespiratory
@@ -785,6 +382,7 @@ cardiothoracic
 cardiotwitter
 cardiovascular
 cardioversion
+carediscoverteach
 caries
 cartilage
 cast
@@ -792,6 +390,7 @@ catalyst
 catalyze
 cataracts
 cdc
+celiacdisease
 cell
 cells
 cellulitis
@@ -800,11 +399,14 @@ cerebral
 cerebral cortex
 cerebral palsy
 cerebrospinal
+cerebrospinalfluid
 cerebrovascular
 certified diabetes educators (cdes)
+certifieddiabeteseducator
 cerumen
 cervical
 cervical screening
+cervicalcancer
 cervix
 cesarean
 cgm
@@ -821,6 +423,8 @@ chemotherapy
 chest
 chicken pox
 chickenpox
+childhoodcancer
+chinesevirus
 chiropractor
 chlamydia
 chloride
@@ -840,6 +444,7 @@ chromosomes
 chronic
 chronic disease
 chronic pain
+chronicdisease
 chronotypes
 cigarette
 circadian
@@ -852,6 +457,8 @@ clinical
 clinical research
 clinical trials
 clinically
+clinicaltrial
+clinicaltrials
 clinician
 clinicians
 clinician-scientist
@@ -861,6 +468,7 @@ clogged
 clotting
 clumping
 cluster
+cmr
 cmv
 coagulate
 coagulation
@@ -869,6 +477,7 @@ coccidioidomycosis
 cochlea
 codeine
 coenzyme-q10
+cohealth15
 cold
 cold-agglutinin
 colds
@@ -877,20 +486,29 @@ collagen
 collagen-vascular
 collagen-vascular-autoimmune
 colon
+coloncancer
 colonoscopy
 colorectal
+colorectal_cancer
+colorectalcancer
 coma
 comminuted fracture
+commoncold
+communityhealth
+communitypharmacists
 comorbidities
 complete blood count (cbc)
 complication
 compound fracture
+computationalnutrition
 concentration
 concussion
+concussionbrain
 condition
 condyloma
 cone
 confidence
+congenitalheartdisease
 congested
 congestion
 congestive
@@ -901,19 +519,30 @@ connective-tissue
 conscienhealth
 constipation
 contact lenses
+contact-tracer
 contagion
 contagious
 contraception
+contract tracer
 contusion
 conventional treatments
 copd
 coproporphyria
 cornea
+cornellalum
 corneoscleral
+coronacrisis
+coronaoutbreak
+coronaquarantine
+coronaravirus
 coronary
 coronavirus
 coronavirus:
+coronavirusaustralia
+coronaviruses
+coronavirusinsa
 coronavirusnc
+corporatepower
 corpuscular
 cortex
 corticosteroids
@@ -927,8 +556,16 @@ covid?19
 covid19
 covid-19
 covid19:
+covid19au
+covid19aus
+covid19australia
+covid19canada
+covid19pandemic
+covid19test
 covid19vic
+covidmaternity
 covidsafe
+covidvaccine
 cowspiracy
 coxsackievirus
 cramps
@@ -939,7 +576,12 @@ creatinine
 crepitus
 cretinism
 crisis
+crispr
+critcare
+critcarenutrition
+crohns
 crohn's
+crohnsdisease
 crutches
 cryoglobulins
 crystal-induced
@@ -947,23 +589,29 @@ crystallization
 crystals
 ct scan or cat scan
 cucumber
+cultureofhealth
 curable
 cure
 cured
 cva
 cvd
+cvprev
 cyanosis
 cyst
 cystic
 cystic fibrosis
+cysticfibrosis
 cystine
 cystinuria
 cysts
 cytoides
+cytokinestorm
+cytology
 cytomegalovirus
 cytotoxic
 dandelion leaf
 dandruff
+davylab
 dealing
 decongestants
 deficiency
@@ -988,6 +636,7 @@ dermatomyositis
 deterioration
 detox
 detoxification
+dexamethasone
 diabetes
 diabetes mellitus
 diabetic
@@ -1016,6 +665,7 @@ disease:
 disease-causing
 diseasefistulas
 diseases
+diseasesofcivilization
 diserythropoietic
 disinfectants
 dislocation
@@ -1034,11 +684,14 @@ doctor
 doctoral degree
 doctorpatient
 doctors
+doctorslog
 dosage
 dose
+doubledoc
 down syndrome
 drained
 drowsy
+drroyrants
 drug
 drugged
 drugs
@@ -1058,18 +711,26 @@ dyslexia
 dyspnea
 dysproteinemia
 dystrophy
+eapc_esc
 ear
 ear canal
 earache
 eardrum
+eatsafe
+ebm
 ebola
+echofirst
+ecigarettes
 e-cigarettes
 eclampsia
 eczema
 edema
+education
 eeg
 eeg (electroencephalogram)
 effectiveness
+eids
+ejpc
 ekg
 elbow
 electrocardiogram
@@ -1085,19 +746,24 @@ emergency
 emeritus
 emotions
 emphysema
+empoweringneurologist
 enamel
 encephalitis
 encopresis
+endableism
 endobronchial
 endocarditis
 endocrine
+endocrine disruptors
 endocrinologist
 endometriosis
 endometrium
+endoscopynews
 enemas
 enlargement
 enterocolitis
 enuresis
+environmental
 enzyme
 enzymes
 ependymomas
@@ -1123,6 +789,8 @@ epistaxis
 epistemology
 epithelial
 epitwitter
+epitwitter…
+equity
 er
 eradicating
 erthyroblastosis
@@ -1131,14 +799,22 @@ erythroblastosis
 erythrocytes
 erythropoiesis
 erythropoietic
+esccongress
+esccongress2020
+escguidelines
 esophageal
 esophagitis
 esophagus
+essaconf12
 estrogen
+ethicsofcare
+euhealthresearch
 eunuchoidism
 eustachian tube
 evolutionary
+exacademic
 excedrin
+exercise
 exercise-induced
 exhale
 exhausted
@@ -1151,8 +827,10 @@ extremities
 eyeball
 eyeballs
 eyeglasses
+eyehealth
 eyelids
 face
+factfad
 faint
 fallopian
 fanconi's
@@ -1160,7 +838,9 @@ farsighted
 fatigue
 fatness
 fauci
+fbpe
 fda
+fdaapproves
 feet
 femoral
 fertilization
@@ -1192,6 +872,8 @@ flu shot
 flucovid
 fluid
 fluids
+flushot
+foamed
 follicularis
 followup
 forehead
@@ -1217,6 +899,7 @@ gammaglobulins
 ganglioneuroblastoma
 ganglioneuroma
 gangrene
+gardasil vaccine
 gastric
 gastric juices
 gastrin
@@ -1258,6 +941,7 @@ glanzmann's
 glaucoma
 glenoid
 glioblastoma
+globalhealth
 globulin
 globulins
 glomerular
@@ -1284,8 +968,11 @@ gonadotropin
 gonadotropins
 gonads
 gonorrhea
+goodbacteria
+goodtrouble
 gout
 gout-like
+govepi
 grains
 granulocytes
 granulocytic
@@ -1293,22 +980,29 @@ granulomatosis
 granulomatosus
 granulomatous
 granulosa
+greenharvard
 grehlin
 groggy
 groin
 growth hormone
+gssi
 guillain-barre
 gums
+gundrymd
 gurney
 gut_bmj
+gutmicrobiome
 gynecologist
+gynhealth
 h1n1
 hacking
 haemophilus
+haes
 hallucination
 hallucinations
 "hand, foot, and mouth disease"
 hand-schueller-christian
+handwashing
 haptoglobin
 harm minimisation
 hartnup
@@ -1325,21 +1019,34 @@ headache
 headaches
 heal
 healed
+health
 health officials
 health policy
 health professional
+health4nsw
 healthcare
 healthdata
+healthdisparities
+healthforall
 healthier
+healthinequalities
+healthinformatics
+healthpolicy
+healthpromotion
 healthy
 hearing loss
 heart
 heart attacks
 heart failure
 heart rate
+heartattack
 heartbeat
 heartburn
+heartdisease
+heartfailure
+hearthealth
 hearthealthy
+heartweek
 heat exhaustion
 heavy-metal
 heinz
@@ -1385,6 +1092,7 @@ hexosamine
 hgb-c
 hiccups
 high blood pressure
+highbloodpressure
 high-purine
 histamine
 histidine
@@ -1396,6 +1104,7 @@ hiv/aids
 hives
 hodgkin's
 holistic
+homeopathy
 homocystine
 homocystinuria
 hormone
@@ -1408,16 +1117,20 @@ hospital's
 host-microbe
 host-pathogen
 hot flashes
+hp2030
+hpm
 hpv
 hsv-2
 human-animal
 human-centred
+humanitarian
 humidifier
 humoral
 hunger
 hungover
 huntington's
 hydrating
+hydrationscience
 hydrocephalus
 hydrocortisone
 hydrogen peroxide
@@ -1450,6 +1163,7 @@ hypersecretion
 hypersensitive
 hypersensitivity
 hypertension
+hypertension2020
 hypertensive
 hyperthyroidism
 hypertonic
@@ -1489,6 +1203,7 @@ hypothalamus
 hypothermia
 hypothyroidism
 hypoxia
+iarcpaper
 ibuprofen
 ichthyosis
 ichythosis
@@ -1500,10 +1215,12 @@ ileitis
 ileus
 ill
 illness
+ilooklikeasurgeon
 imaging
 immobility
 immune
 immune system
+immuneintolerance
 immunisation
 immunity
 immunization
@@ -1519,6 +1236,7 @@ immunotherapy
 immunotherapy and allergy shots
 impermissibility
 impetigo
+implementation
 impotence
 incontinence
 incubators
@@ -1530,16 +1248,20 @@ infecting
 infection
 infections
 infectious
+infectiousdisease
 infectiousdiseases
+infertility
 infestation
 inflamation
 inflame
 inflamed
 inflammation
 inflammatory
+inflammatory bowel disease
 influences
 influenza
 influenzae
+informas
 ingestion
 inguinal
 inhale
@@ -1564,12 +1286,15 @@ insulin injections
 insulin pump
 insulin resistance
 insulinoma
+insulinresistance
 insulin-resistant
+integrative
 integrative health
 integrative medicine
 intensive care
 intensive care unit
 interactions with drugs
+internalmedicine
 interstitial
 intestinal
 intestine
@@ -1600,14 +1325,20 @@ islet-cell
 islets
 isoenzyme
 isothermal
+issn
+it/cisco
 itch
 itching
 itchy
 iv
+ivf
+jacccasereports
 jama
 jaundice
 jaundiced
 jaw
+jhsphalum
+jnolive
 joint pain
 joints
 journal
@@ -1615,6 +1346,8 @@ justicecovid
 juvenile rheumatoid arthritis
 karotyping
 kawasaki disease
+kc
+kef
 keratin
 keratosis
 keto
@@ -1623,9 +1356,12 @@ ketogenesis
 ketogenic
 ketone
 ketones
+ketoreset
+ketosis
 kidney
 kidney disease
 kidney stones
+kidneykardashian
 kidneys
 kinetics
 klippel-feil
@@ -1634,8 +1370,11 @@ kneecap
 kyphosis
 laboratory
 lacrimal glands
+ladiesweneedtotalk
 laennec's
+lakers
 lancet
+lancetglobalhealth
 langerhans
 laparoscopy
 l-arginine
@@ -1644,6 +1383,7 @@ laryngospasm
 larynx
 lasik
 lateral
+latinasinmedicine
 laxatives
 ldl
 learning
@@ -1658,10 +1398,14 @@ leucine
 leukemia
 leukoagglutinins
 leukodystrophy
+levothyroxine
 lifelong
 life-long
+lifemed16
 life-saving
 lifespan
+lifestylemedicine
+lifestylesolutions
 ligament
 limping
 liothyronine
@@ -1671,7 +1415,12 @@ lipidology
 lipids
 lipoproteins
 liquid diet
+litfl
 liver
+livercancer
+liverdisease
+livingwithms
+lluh
 loneliness
 long term survival
 longcovid
@@ -1687,6 +1436,7 @@ lunch
 lunchbox
 lung
 lung function tests
+lungcancer
 lungs
 lunula
 lupus
@@ -1719,6 +1469,7 @@ macular
 magnesium
 malabsorption
 maladies
+malaria
 malignancy
 malignant
 mallory-weiss
@@ -1728,10 +1479,16 @@ manganese
 marijuana
 marrow
 masculinization
+masks
+masks4all
+maskup
+maskwearing
 mast
 mastectomy
+masterthemedia
 mastocytosis
 maternal
+maternalhealth
 mch
 mchc
 mctd
@@ -1742,6 +1499,7 @@ medcitynews
 medcrisis
 médecine
 médecins
+meded
 mediadoctorau
 mediastinitis
 mediastinum
@@ -1749,8 +1507,10 @@ medicaid
 medical
 medical_xpress
 medicalaxioms
+medicalconservative
 medically
 medicalrepublic
+medicalresearch
 medicare
 medication
 medications
@@ -1769,6 +1529,7 @@ melanin
 melanocytes
 melanoma
 mellitus
+membersmovemedicine
 membrane
 membranes
 membranous
@@ -1786,10 +1547,13 @@ menopause
 menstrual
 menstruating
 menstruation
+mentalfatigue
 mentalhealth
 mentalhealthnsw
 mentality
 mentally
+mentalwellbeing
+mers
 mesenteric
 mesentery
 metabolic
@@ -1805,6 +1569,7 @@ metastasizes
 metastatic
 metformin
 methionine
+mhealth
 microaneurysms
 microbes
 microbial
@@ -1836,6 +1601,7 @@ mitochondria
 mitochondrial
 mitogen
 mitral
+mmr vaccine
 mol
 molecular
 molecule
@@ -1852,13 +1618,16 @@ mosquito
 mosquitoborne
 motherinmed
 motility
+motivationalinterviewing
 motor control
 motor coordination
 motrin
 movement
 mri
 msfsci
+mskd
 mtor
+mtwabp
 mucocele
 mucopolysaccharides
 mucopolysaccharidosis
@@ -1870,11 +1639,13 @@ mucus
 mucus-producing
 multinodular
 multiple sclerosis
+multiplesclerosis
 mumps
 murmur
 muscle
 musclebone
 muscle-centric
+musclematters
 muscles
 musclescience
 musclespecific
@@ -1910,19 +1681,23 @@ myoglobinuria
 myometrium
 myopia
 myxedema
+nad
 nadh
+nadtwitter
 naproxen
 narcotics
 nasal
 nasal cavity
 national institute of mental health
 natmetabolism
+natryfor5
 nausea
 nauseous
 navel
 ncd
 ncdfree
 ncds
+ncga
 nearsighted
 nebulizer
 neck
@@ -1959,6 +1734,7 @@ neuroblastoma
 neurochemicals
 neurodegenerative
 neurodevelopment-aging
+neurodiversity
 neurofibroma
 neurogenesis
 neurogenic
@@ -1985,9 +1761,12 @@ neurotic
 neurotransmitter
 neutrophils
 newborns
+news
 nhanes
+nhs
 nhscovid19app
 niacin
+nicotinamideriboside
 nicotine
 night guard
 nih_nhlbi
@@ -1995,6 +1774,7 @@ nihfunded
 nihsponsored
 nipple-like
 nits
+nma2020
 nnh
 nobel
 noncancerous
@@ -2025,9 +1805,12 @@ numb
 number needed to harm
 numbness
 nurse
+nurses
+nursetwitter
 nursing
 nutraceutical
 nutraceuticals
+nutribollocks
 nutrients
 nutrigenomics
 nutrigenomix
@@ -2044,6 +1827,7 @@ obstructed
 obstruction
 obstructive
 occlusion
+occupational
 occupational therapist
 occupational therapy
 oncologist
@@ -2062,6 +1846,7 @@ opioids
 opthalmologists
 optician
 optometrist
+oralhealth
 organ
 organs
 ortho
@@ -2076,6 +1861,7 @@ osteochondromatosis
 osteomalacia
 osteomyelitis
 osteoporosis
+osteosarcopenia
 otalgia
 otitis media
 otolaryngologist
@@ -2084,9 +1870,11 @@ outbreaks
 outgrowths
 outpatient
 outpatients
+ovariancancer
 overdose
 overdoses
 overhydration
+overlandpark
 overproduction
 overthecounter
 ovivahealth
@@ -2118,6 +1906,7 @@ panacea
 panadol
 pancreas
 pancreatic
+pancreaticcancer
 pancreatitis
 pandemic
 pandemic:
@@ -2146,6 +1935,7 @@ parathyroids
 paratyphoid
 paresthesias
 parkinson’s
+parkinsons
 parkinson's
 paroxysmal
 particulate
@@ -2155,6 +1945,7 @@ pathogen
 pathogenesis
 pathologic
 pathologist
+pathologists
 pathology
 pathophysiology
 pathway
@@ -2165,8 +1956,10 @@ patient-centered
 patientcentred
 patient-doctor
 patients
+patientzero
 pcos
 pcr
+pcrtest
 peadiatric
 peak flow meter
 pectoris
@@ -2179,6 +1972,7 @@ pediatrics
 pelvis
 penis
 peptic
+peptidechemistry
 peptides
 percutaneous
 perforation
@@ -2196,6 +1990,7 @@ peritonitis
 permeability
 pernicious
 personalised
+personalisedmedicine
 personalized
 perspiration
 petechiae
@@ -2207,6 +2002,7 @@ pfizerbiontech
 pfizer's
 ph
 pharma
+pharma intervention
 pharmabiotic
 pharmaceuticals
 pharmacies
@@ -2235,6 +2031,7 @@ phosphorylation
 phylogenetics
 phylogenomics
 physician
+physicians
 physician-wellness
 physio
 physiological
@@ -2254,6 +2051,7 @@ pimples
 pineal
 pinna
 pituitary
+placebo
 placenta
 placental
 plant sterols
@@ -2305,6 +2103,7 @@ porphyrias
 porphyrin
 porphyrins
 portacaval
+positivenutrition
 postcovid
 postcovid19
 postdischarge
@@ -2321,6 +2120,10 @@ postsurgical
 posttraumatic
 postural
 posture
+practiceofmedicine
+precisionmed
+precisionmedicine
+prediabetes
 predimed
 pre-eclampsia
 preexisting
@@ -2337,7 +2140,13 @@ prescription
 prescription drug
 presymptomatic
 prevalence
+prevention
+prevention2021
+preventionfirst
 preventive health
+preventratherthancure
+primarycare
+princetonalumni
 proaccelerin
 probiotics
 proconvertin
@@ -2361,7 +2170,9 @@ pseudogout
 pseudohypoparathyroidism
 pseudomembranous
 pseudo-precocious
+psilocybin
 psoriasis
+psychedelics
 psychiatric
 psychiatric disorder
 psychiatrist
@@ -2375,20 +2186,27 @@ psychotic
 puberty
 public health
 publichealth
+publichealthamppolicy
+publichealthhaiku
+publichealthnutrition
+publichealthreports
 puke
 puking
 pulmonary
+pulmonaryhypertension
 pulmonary-valve
 pulmonologist
 pulse
 pumpkin
 pupil
+purduehhs
 purines
 pyelonephritis
 pyloric
 pyridoxine
 pyridoxine-responsive
 pyrrole
+qldpol
 quadriplegia
 quarantine
 quick-relief medicines
@@ -2400,18 +2218,28 @@ radiologist
 rapamycin
 rash
 rct
+rd
+rdap
+rdchat
+rdjc
+rdn
+rduk
+reason
 recall
 receptor
+rechtgutemedizin
 recover
 recovered
 recovering
 recovery
 recreational
 red blood cells
+ref
 reflux
 refractory
 regenerative
 register
+registerednutritionist
 registry
 rehab
 rehabilitation
@@ -2428,8 +2256,10 @@ remissions
 renal
 renovascular
 residency
+resistancetrainingismedicine
 respiratory
 respiratory syncytial virus
+retailrd
 retardation
 reticulocytes
 reticulocytosis
@@ -2445,6 +2275,7 @@ rhesus
 rheumatic
 rheumatoid
 rheumatoid arthritis
+rheumatoidarthritis
 rheumatologist
 rheumatology
 rh-factor
@@ -2456,21 +2287,29 @@ rh-negative
 rh-positive
 rhythm
 riboflavin
+rice
 rickettsia
 rickettsial
 rickettsial-collagen
 ringworm
 ripatti
 risk of death
+rit
 roseola
 rotator cuff
 rotavirus
 rubella
 rubeola
+run
 runny
+ruokday
+ruokday2020
+ruralhealth
 rx
 sacrum
+safesleep
 safety
+safetyfirst
 saliva
 salivary
 salmonella
@@ -2478,8 +2317,11 @@ sarcoidosis
 sarcoma
 sarcopenia
 sardines
+sars-cov
+sars-cov-1
 sarscov2
 sars-cov-2
+sayhername
 sbe
 scab
 scabies
@@ -2487,7 +2329,12 @@ scar
 scarlatina
 scarlet fever
 scarring
+schizophrenia
 scicomm
+science
+scienceheroes
+scienceissexy
+scientist
 scintillation
 scintiscan
 sclera
@@ -2497,6 +2344,7 @@ sclerosis
 scoliosis
 scotoma
 scratchy
+sdoh
 sebaceous glands
 sebum
 secrete
@@ -2518,9 +2366,12 @@ septal
 septic
 serotonin
 serum
+setpoint
 severe
 sex
 sex differences
+sexmatters
+sexsteroids
 sexual dysfunction
 sexually
 sglt2 inhibitors
@@ -2529,6 +2380,7 @@ sgpt
 shakes
 shigellosis
 shingles
+shinglesvaccine
 shivering
 sick
 sicker
@@ -2545,8 +2397,12 @@ skeletal
 skin
 skin health
 skin test
+skincancer
 skull
+sleepapnea
+sleeptwitter
 smallpox
+smokefree
 smokers
 smoking
 sneeze
@@ -2583,10 +2439,14 @@ spondylitis
 spondylolisthesis
 spondylosis
 spontaneous
+sportdietitian
+sportmedicine
+sportsmedicine
 sprain
 sputum
 st john's wort
 stalk
+stand4science
 stanols
 stapes
 staphylococcemia
@@ -2596,10 +2456,13 @@ starchlike
 starchy
 stat
 statins
+stayhome
 std
 steatorrhea
 stein-leventhal
 stem
+stemcells
+stemdiversity
 stenosis
 sternum
 sternutation
@@ -2609,6 +2472,7 @@ stethoscope
 sti
 stiff
 stiffness
+stigma
 stitches
 stomach
 stomachache
@@ -2616,6 +2480,7 @@ stomache
 stools
 strabismus
 strain
+strengthmatters
 strep
 strep screen
 strep throat
@@ -2624,6 +2489,7 @@ streptoccoccal
 streptococcal
 streptococcus
 streptokinase
+stress
 stroke
 strokes
 stuffy
@@ -2633,10 +2499,14 @@ subacute
 subaortic
 subluxations
 substance
+sugar
 suicidal
+suicide
 sulfites
 sunburn
 sunscreen
+superbug
+supportwinc
 surgeon
 surgery
 surgical
@@ -2664,13 +2534,16 @@ syphilis
 syringe
 syringomelia
 systolic
+t1d
 t2d
 tachycardia
 tamponade
 taste buds
 tay-sachs
+tb
 tcm
 teamcardio
+technology
 telangiectasias
 telehealth
 telemedicine
@@ -2684,12 +2557,15 @@ testosterone
 tetanus
 thalassemia
 thalessemia
+thefaceofcardiology…
 thelancet
+themindgutconnection
 theophylline
 therapeutic
 therapies
 therapist
 therapy
+thisispublichealth
 throat
 throats
 throbbing
@@ -2718,6 +2594,8 @@ tissue sample
 tissues
 tmao
 tobacco
+tobaccocontrol
+tobaccoindustrydocuments
 toddler
 toes
 tongue
@@ -2749,6 +2627,7 @@ treatable
 treated
 treatment
 tremors
+trf
 tricuspid
 triggers
 tri-iodothyronine
@@ -2756,21 +2635,31 @@ trimester
 triploidy
 trisomy
 tropical
+ttcot
 tubercles
 tuberculosis
 tuberculous
 tubes
 tubular
+tuf21ufc
 tularemia
 tumor
 turcica
+tweetiatrician
 twitching
 tylenol
 tympanogram
 type 2 diabetes
+type ii diabetes
+type1
+type1diabetes
 typhoid
 typhus
 tyrosinemia
+ubcfoodsystem
+uclaanesthesia
+ucph
+uf
 ulcer
 ulcerate
 ulcerated
@@ -2781,6 +2670,8 @@ ulcers
 ultrasound
 umbilical
 umbilical cord
+umndriven
+umnproud
 unbearable
 uncomfortable
 unconjugated
@@ -2806,11 +2697,14 @@ urokinase
 urticaria
 uterine
 uterus
+vaccin
 vaccinated
 vaccination
 vaccine
 vaccine substitute
 vaccines
+vaccineswork
+vaccins
 vagina
 vaginal
 valerian
@@ -2820,6 +2714,7 @@ vaping
 varicella zoster
 varicose
 vascular
+vascularfunction
 vasculitis
 vasoconstriction
 vasolilation
@@ -2840,8 +2735,10 @@ vertigo
 very low density lipoprotein
 vesicoureteral
 vestibular
+vestibularmigraine
 vichealth
 vicodin
+victorianhearthospital
 viral
 virologist
 virology
@@ -2851,6 +2748,7 @@ vision
 vitreous body
 vldl
 vo2max
+vocortex
 vomit
 vomiting
 waldenstrom's
@@ -2858,9 +2756,13 @@ wart-like
 warts
 wash hands
 wash your hands
+waswirklichwirkt
 wear a mask
 wear masks
 wearables
+wearadamnmask
+wearamasksavealife
+wearepartners;
 webmd
 wepublichealth:
 weston
@@ -2869,13 +2771,29 @@ wheezing
 white blood cells
 whitehead
 wholitarian
+whycardiologychoosecardiologyofcoursecardiology
 willebrand's
+wimsincovid
 wisdom teeth
 wiskott-aldrich
 withdrawal symptoms
 woken
 wolff-parkinson-white
+womencvhealth
+womeninmedicine
+womeninmedicinemonth
+womenshealth
+workplacehealth
+worldcancerday
+worldcancerday2020
 worldheartday
+worldhepatitisday
+worldkidneyday
+worldlungday
+worldmentalhealthday
+worldpatientsafetyday
+worldpharmacistsday
+worldsuicidepreventionday
 worms
 wound
 wrist
@@ -2885,6 +2803,8 @@ x-ray
 yawn
 yeast infection
 yellow fever
+yescct
+yolobypass
 zollinger-ellison
 zoonosis
 zoonotic

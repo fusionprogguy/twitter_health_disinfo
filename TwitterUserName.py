@@ -18,7 +18,11 @@ consumer_secret = "xxxx"
 access_token = "xxxx"
 access_token_secret = "xxxx"
 
-limit_users = 1500       # Maximum number of users to check
+# which Twitter list and who owns it
+twitter_user = 'fusionprogguy'         # Your Twitter username goes here eg '@fusionprogguy' -> 'fusionprogguy'
+twitter_health_list = 'Health-Quacks'  # List names with spaces get dashes 'Health Quacks' - > 'Health-Quacks'
+
+limit_users = 1500         # Maximum number of users to check
 number_of_tweets = 200     # Tweet limit. Default is 200
 
 # authorization of consumer key and consumer secret
@@ -142,10 +146,6 @@ def remove_symbols(text, bool_remove_url):
 
 wordDict = defaultdict(int)  # Dictionary is initilized with a zero
 
-# which Twitter list and who owns it
-twitter_user = 'fusionprogguy'  # 'fusionprogguy'
-twitter_health_list = 'Health'  # 'Education'    #  'Health'
-
 # health_list_members = api.list_members(twitter_user, twitter_health_list)  # user, list  # Only retrieves 20 people
 
 print('Retrieving bios and tweets from', twitter_user, 'list:', twitter_health_list)
@@ -208,7 +208,7 @@ tweets_filename = "health_tweets-" + twitter_health_list + "-" + date_time_strin
 csvfile_tweets = open(tweets_filename, 'w', encoding="utf-8", newline='')
 c_tweets = csv.writer(csvfile_tweets)
 
-tweets_header = ['claim', 'medical', 'nutrition', 'polarity', 'subjectivity', 'name', 'qualification', 'date', 'tweet']   # 'tweet_id'
+tweets_header = ['claim', 'medical', 'nutrition',  'claim_str', 'medi_str', 'nutri_str', 'polarity', 'subjectivity', 'name', 'qualification', 'date', 'tweet']   # 'tweet_id'
 print(tweets_header)
 c_tweets.writerow(tweets_header)
 
@@ -332,7 +332,7 @@ for idx, user in enumerate(health_list_members):
         tmp = []
         # Create array of tweet information
         # Using 'tweet.text' is a Tweepy truncated status update. Use tweet.full_text for the full tweet
-        tweets_for_csv = [[name, qualification, tweet.created_at.strftime('%Y/%m/%d'), remove_symbols(tweet.full_text, False)] for tweet in tweets]   # tweet.id_str
+        tweets_for_csv = [[name, qualification, tweet.created_at.strftime('%Y/%m/%d'), tweet.full_text] for tweet in tweets]   # tweet.id_str
 
         count_retrieved = 0
         count_claim = 0
@@ -344,7 +344,11 @@ for idx, user in enumerate(health_list_members):
         array_sentiment = []
 
         for twt in tweets_for_csv:
-            text_tweet = twt[3]  # Tweet text
+            text_tweet = remove_symbols(twt[3], False).replace('\n', ' ')  # Tweet text
+
+            claim_w = []
+            medi_w = []
+            nutri_w = []
 
             # Skip any tweets with RT in them
             if text_tweet[:3] == 'RT ':  # Check the first 3 letters of the tweet
@@ -369,6 +373,7 @@ for idx, user in enumerate(health_list_members):
 
             # print('Check', text_tweet)
 
+            # Check for individual word matches
             for word in tweet_text_list:
                 word = word.lower().strip()
 
@@ -378,17 +383,51 @@ for idx, user in enumerate(health_list_members):
                             # if '...' not in word:  # This occurs often as the tweets are cut short and thus creates new words
                             wordDict[word] += 1
 
-                if word in claim_words:
-                    bool_claim = True
-                    count_claim += 1
+                            if word in claim_words:
+                                # print('Claim', word)
+                                claim_w.append(word)
+                                bool_claim = True
+                                count_claim += 1
 
-                if word in medical_words:
-                    bool_medical = True
-                    count_medical += 1
+                            if word in medical_words:
+                                # print('Med', word)
+                                medi_w.append(word)
+                                bool_medical = True
+                                count_medical += 1
 
-                if word in nutrition_words:
-                    bool_nutrition = True
-                    count_nutrition += 1
+                            if word in nutrition_words:
+                                # print('Nutri', word)
+                                nutri_w.append(word)
+                                bool_nutrition = True
+                                count_nutrition += 1
+
+            # Check for longer phrases
+            for claim_word in claim_words:
+                if len(claim_word.split()) > 1:
+                    if claim_word in text_tweet and claim_word not in claim_w:
+                        # print('Claim', claim_word)
+                        claim_w.append(claim_word)
+                        wordDict[claim_word] += 1
+                        bool_claim = True
+                        count_claim += 1
+
+            for med_word in medical_words:
+                if len(med_word.split()) > 1:
+                    if med_word in text_tweet and med_word not in medi_w:
+                        # print('Med', med_word)
+                        medi_w.append(med_word)
+                        wordDict[med_word] += 1
+                        bool_medical = True
+                        count_medical += 1
+
+            for nutr_word in nutrition_words:
+                if len(nutr_word.split()) > 1:
+                    if nutr_word in text_tweet and nutr_word not in nutri_w:
+                        # print('Nutri', nutr_word)
+                        nutri_w.append(nutr_word)
+                        wordDict[nutr_word] += 1
+                        bool_nutrition = True
+                        count_nutrition += 1
 
             # print(count_retrieved, bool_claim, bool_medical, bool_nutrition, twt)
             # if bool_claim and (bool_medical or bool_nutrition):
@@ -396,10 +435,29 @@ for idx, user in enumerate(health_list_members):
                 array_polarity.append(tweet.sentiment.polarity)
                 array_sentiment.append(tweet.sentiment.subjectivity)
 
-                check_claim = [bool_claim, bool_medical, bool_nutrition, tweet.sentiment.polarity, tweet.sentiment.subjectivity]
+                claim_str = ''
+                medi_str = ''
+                nutri_str = ''
+
+                if len(claim_w) > 0:
+                    claim_str = ', '.join(claim_w)
+                    # print('Claims:', claim_str)
+                if len(medi_w) > 0:
+                    medi_str = ', '.join(medi_w)
+                    # print('Medi:', medi_str)
+                if len(nutri_w) > 0:
+                    nutri_str = ', '.join(nutri_w)
+                    # print('Nutri:', nutri_str)
+
+                check_claim = [bool_claim, bool_medical, bool_nutrition, claim_str, medi_str, nutri_str, tweet.sentiment.polarity, tweet.sentiment.subjectivity]
                 row = check_claim + twt  # check_claim.extend(twt)
-                print(row)  # type(check_claim), type(row))
                 c_tweets.writerow(row)
+
+                print(name + ":", text_tweet)
+                print('Claim', claim_str, 'Medi', medi_str, 'Nutri', nutri_str)  # type(check_claim), type(row))
+
+                if len(claim_w) + len(medi_w) + len(nutri_w) > 0:
+                    print()
 
             count_retrieved += 1
 
@@ -462,7 +520,7 @@ for i, x in enumerate(x_axis):
     df_unknown = df[df['gender'].isin(['unknown', 'andy'])]
 
     try:
-        print('string', x, type(x), y, type(y))
+        # print('string', x, type(x), y, type(y))
         plt.scatter(df_male[x], df_male[y], color='blue', label='men')
         plt.scatter(df_female[x], df_female[y], color='red', label='women')
         plt.scatter(df_org[x], df_org[y], color='orange', label='organisations')
@@ -505,9 +563,10 @@ csvfile_bio.close()
 
 # Save the bio / tweet word count
 outfile = "word_freq-" + twitter_health_list + "-" + date_time_string + ".csv"
+print()
 print('Saving', outfile)
 fp = open(outfile, encoding='utf-8-sig', mode='w', newline='')
-fp.write('Word,freq,list\n')
+fp.write('Word,freq,list1,list2,list3\n')
 
 sort_dict = sorted(wordDict.items(), key=lambda x: (x[1], x[0]), reverse=True)  # , reverse=True
 for tag, count in sort_dict:  # Sort the dictionary by most common words first
