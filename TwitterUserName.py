@@ -1,4 +1,4 @@
-# import the modules
+# Import the modules
 import tweepy
 from textblob import TextBlob
 import pandas as pd
@@ -8,7 +8,6 @@ from collections import Counter, defaultdict
 import datetime
 import re
 import traceback
-import warnings
 import statistics
 import matplotlib.pyplot as plt
 
@@ -18,20 +17,28 @@ consumer_secret = "xxxx"
 access_token = "xxxx"
 access_token_secret = "xxxx"
 
-# which Twitter list and who owns it
-twitter_user = 'fusionprogguy'         # Your Twitter username goes here eg '@fusionprogguy' -> 'fusionprogguy'
-twitter_health_list = 'Health-Quacks'  # List names with spaces get dashes 'Health Quacks' - > 'Health-Quacks'
+# Your twitter name and your twitter list
+twitter_user = 'fusionprogguy'     # Your Twitter username goes here eg '@fusionprogguy' -> 'fusionprogguy'
+twitter_health_list = 'Health-Quacks'     # List names with spaces should get dashes 'Health Quacks' - > 'Health-Quacks'
 
-limit_users = 1500         # Maximum number of users to check
-number_of_tweets = 200     # Tweet limit. Default is 200
+limit_users = 2000           # Maximum number of users to check. There are around 1600 in the health list.
+number_of_tweets = 200       # Maxmum of tweets to retrieve. Twitter doesn't let you get more than 200
 
-# authorization of consumer key and consumer secret
+min_count_retrieved = 10     # Minimum number of tweets you'll accept. Try 25-50 for Health list. Lower for Quack list.
+min_count_valid = 1          # Minimum number of tweets with a claim and (medical or nutritional keyword). Try 7 for Health list. Lower for Quack list.
+
+min_followers_count = 1000   # Minimum followers you'll accept. Try 1000
+min_status_count = 1000      # Minimum status updates you'll accept. Try 1000
+
+accept_retweets = True       # If false, the RT tweet is skipped
+
+# Authorization of consumer key and consumer secret
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 
-# set access to user's access key and access secret
+# Set access to user's access key and access secret
 auth.set_access_token(access_token, access_token_secret)
 
-# calling the api
+# Calling the api
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)  # wait_on_rate_limit=True, wait_on_rate_limit_notify=True
 
 remove_titles = ['(', ')', 'she/her', 'he/him', 'they/them', 'AdvAPD', 'AEP', 'APD', 'CDE', 'CFS', 'CLT', 'CNSC', 'CSCS', 'CSSD', 'Dr.', 'Dr', 'DR', 'Doctor',
@@ -39,12 +46,12 @@ remove_titles = ['(', ')', 'she/her', 'he/him', 'they/them', 'AdvAPD', 'AEP', 'A
                  'M.D.', 'MD', 'MHS', 'MLIS', 'MPH', 'MSCE', 'MSc', 'MS', 'MTR',
                  'Ph.D.', 'PhD', 'Professor', 'Prof.', 'Prof', 'PT', 'RDN', 'RD', 'ScD', 'ScM', 'ER physician', 'Nutritionist', 'Dietician']
 
-# These orgs are misidentified as being either male or female
-orgs = ['Cleveland Clinic', 'Stanford Medicine', 'Weston A. Price Foundation', 'Mayo Clinic', 'WebMD', 'WebMD_Blogs', 'FDA Drug Information',
-        'The BMJ', 'The Atlantic Health', 'The Lancet Global Health', 'The Nutrition Source',
+# These orgs are misidentified as unknown, male or female.
+orgs = ['Cleveland Clinic', 'Stanford Medicine', 'Weston A. Price Foundation', 'Mayo Clinic', 'WebMD', 'Web', 'WebMD_Blogs', 'Web Blogs', 'FDA Drug Information', 'FDA FOOD (Ctr for Food Safety & Applied Nutrition)',
+        'The BMJ', 'The Atlantic Health', 'The Lancet Global Health', 'The Nutrition Source', 'Heart_BMJ', 'BMJ_Open', 'Heart Foundation NZ',
         'The George Institute for Global Health', 'The TVA', 'The Health Sciences Academy', 'The Gut Foundation', 'The Conversation H+M', 'The Nutrition Consultant', 'The Microbiome Diet',
-        'The Food Physio', 'Take That, Medicine!', 'CDC', 'WebMD', 'Harvard Health', 'BBC Health News', 'Gates Foundation', 'Family Health Guide', 'NIH', 'NYT Health', 'NPR Health News',
-        'NBC News Health', 'HHS.gov', 'NEJM', 'AMA', 'TIME Health', 'WSJ Health News', 'Department of Health and Social Care', 'CBS News Health', 'L.A. Times Health', 'WebMD_Blogs', 'JAMA',
+        'The Food Physio', 'Take That, Medicine!', 'CDC', 'Harvard Health', 'BBC Health News', 'Gates Foundation', 'Family Health Guide', 'NIH', 'NYT Health', 'NPR Health News',
+        'NBC News Health', 'HHS.gov', 'NEJM', 'AMA', 'TIME Health', 'WSJ Health News', 'Department of Health and Social Care', 'CBS News Health', 'L.A. Times Health', 'JAMA',
         'U.S. FDA', 'HarvardPublicHealth', 'American Heart Association', 'Reuters Health', 'Health', 'HuffPost Food', 'Medscape', 'Garmin', 'Kaiser Health News',
         'Muscular Development', 'Maye Musk', 'Health Affairs', 'Modern Healthcare', 'Sir Patrick Vallance', 'STAT', 'Nursing Times', 'Muscle & Performance', 'Cochrane',
         'European Society of Cardiology', 'Australian Government Department of Health', 'USDA Nutrition', 'American College of Cardiology', 'American Heart News', 'YLMSportScience',
@@ -61,7 +68,19 @@ orgs = ['Cleveland Clinic', 'Stanford Medicine', 'Weston A. Price Foundation', '
         'Science of Football', 'optimising nutrition', 'Deakin Nutrition', 'Champagne Nutrition', 'TrueHealthInitiative', 'SAGE Health & Nursing', 'American Society for Nutrition Journals',
         'Grains & Legumes Nutrition Council', 'SydneyCycleways', 'Kidney Health', 'BadScienceWatch', 'Health Watch', "Australian Women's Health Network", "Racial Health Equity",
         'Peppermint Wellness', 'Glycemic Index Foundation', 'Heart Foundation', 'VIS Nutrition', 'Healthy Weight Week', 'Heart Research Institute', 'Cancer Council Media',
-        'AJHE', 'JMNI', 'BMJ Nutrition, Prevention & Health', 'Science of Nutrition', 'Simply Nutrition']
+        'AJHE', 'JMNI', 'BMJ Nutrition, Prevention & Health', 'Science of Nutrition', 'Simply Nutrition', 'Complementary Meds', 'IARC', '#TRAINBRAVE', 'Elemental',
+        'Evidence Synthesis Ireland', 'HealthLiteracyPlace', 'Institute for Health Transformation', 'Quackery Detector', 'Amer Acad Pediatrics', 'Drug Science (ISCD)'
+        'Science Magazine', 'Everyday Health', 'Johns Hopkins Medicine', 'Johns Hopkins Bloomberg School of Public Health', 'Harvard Medical School',
+        'FDA Drug Information', 'Nature Medicine', 'National Cancer Institute', 'Civil Eats', 'Well+Good', 'eatright', 'American College of Sports Medicine', 'YLMSportScience',
+        'National Academies', 'Medical Axioms', 'UC San Francisco', 'NIAID News', 'NewYork-Presbyterian', 'AAFP', 'JACC Journals', 'Food & Nutrition Mag', "Today's Dietitian", 'MMWR',
+        'Heart_BMJ', 'FDA FOOD (Ctr for Food Safety & Applied Nutrition)', 'Nutrition Studies', 'CIDRAP', 'Medicine & Science in Sports & Exercise', 'National Academy of Medicine',
+        'Australian Doctor', 'Cell Host & Microbe', 'OAC', 'PEN: Practice-based Evidence in Nutrition', 'UMN School of Public Health', 'Drug Science (ISCD)', 'DH Kiefer',
+        'WellBeing Magazine', 'Aus S&C Assn', 'Endocrine Today', 'Massachusetts Medical Society (MMS)', 'MDLinx', 'Au Science Media Ctr', 'Sports Dietitians Australia', 'WCRF UK',
+        'Institute of Performance Nutrition', 'NC Health News', 'ID News', '@RDUKChat', 'Real Health Magazine', 'JHNDEditor', 'HRB-TMRN', 'NutritionGurus', 'Australian Food News',
+        'UTS Health', 'EducationInNutrition', 'UCPH Healthscience', 'Nutrients MDPI', "Veggies Don't Bite", 'UofSC Arnold School of Public Health', 'MonashHeart', 'NuttedOutNutrition',
+        'HealthLiteracyPlace', 'Institute for Health Transformation', 'UAMS Center for Health Literacy', 'Reconnect Nutrition', 'Massachusetts Medical Society (MMS)',
+        'Nutrition Studies', "Children's Health Defense", 'Natural Blaze', 'Sustainable Pulse', 'Waking Times', 'goop', 'Collective Evolution', 'NoCompulsoryVaccination on Parler',
+        'Non-GMO Project', 'Eat This, Not That!', 'GreenMedInfo', 'The Truth About Cancer', 'The Sons of Liberty', 'Non-GMO Project', 'Natural Blaze', 'The HighWire']
 
 ignore_words = ['rt', '@', '$', '&', '/', '', '-', '―', 'im', "i'm", "i’m", "i’ve", "we’ve", "it's", "it’s", 'too', "don’t", "can’t", "they’re", "won’t", 'every', 'happy', 'two', 'talk', 'days', 'months', 'off', '&', '&amp', 'a', 'about', 'after', 'all', 'also', 'am', 'an', 'and', 'any', 'are', 'as', 'at', 'back', 'be', 'been',
                 'being', 'best', 'between', 'boys', 'but', 'by', 'oh', 'can', 'car', 'cars', 'cat', 'cats', 'check', 'could', 'dad', 'day', 'did', 'do', 'does', 'dog', 'dogs', "don't", 'during', 'even', 'fan', 'find', 'first', 'for', 'former', 'free',
@@ -71,7 +90,7 @@ ignore_words = ['rt', '@', '$', '&', '/', '', '-', '―', 'im', "i'm", "i’m", 
                 'she', 'should', 'so', 'some', 'still', 'study', 'take', 'team', 'than', 'thank', 'thanks', 'that', 'that', 'the', 'their', 'them', 'there', 'these', 'they', 'think', 'this', 'those', 'time', 'to', 'today', 'top' 'bad', 'up', 'us',
                 'use', 'very', 'via', 'views', 'want', 'was', 'way', 'we', 'week', 'well', 'were', 'what', "what’s", 'when', 'where', 'which', 'who', 'why', 'wife', 'will', 'with', 'work', 'working', 'would', 'years', 'you', 'your']
 
-special_symbols = ['(', ')', '"', '“', '”', "'", ',', '.', '!', '?', ';', '#', '=', '≠', '//', ':', '-', '—','―', '+', '|', '||', '•', '○', '*', ':)', '~', '…', '...', '\n']  # '//', ':', '@'
+special_symbols = ['(', ')', '"', '“', '”', "'", "‘", "’", ',', '.', '!', '‼', '?', '$', ';', '#', '=', '≠', '//', ':', '-', '—','―', '+', '|', '||', '•', '○', '*', ':)', '~', '…', '...', '\n']  # '//', ':', '@'
 
 def clean(x):
     # Cleaning the tweets
@@ -225,22 +244,22 @@ unknown_sentiment = []
 
 
 for idx, user in enumerate(health_list_members):
-
     if idx >= limit_users:
         break
 
     # Fetch user info
     name = user.name
 
+    # if name in orgs:
+    #    continue
+
     # Remove any titles eg Dr. DR, MD, M.D. etc
     clean_name = name
 
     if '_' in clean_name:
-        clean_name = clean_name.replace('_', ' ')  # eg Mark_Sisson -> 'Mark Sisson'
-
+        clean_name = clean_name.replace('_', ' ')  # eg Mark_Sisson -> 'Mark Sisson' (careful with 'Web_MD')
     if '(' in clean_name:
         clean_name = clean_name.replace('(', ' ')
-
     if ')' in clean_name:
         clean_name = clean_name.replace(')', ' ')
 
@@ -261,19 +280,14 @@ for idx, user in enumerate(health_list_members):
     qualification = ', '.join(qualification)
 
     screen_name = user.screen_name
-
     first_name = clean_name.split(' ')[0]  # Get the first name
 
-    if first_name.lower() == 'the' or clean_name in orgs:  # Eg The BMJ, The Lancet Global Health, The George Institute for Global Health
+    if clean_name in orgs:  # Eg The BMJ, The Lancet Global Health, The George Institute for Global Health
         gender = 'organisation'  # Likely an organisation, business or app
     else:
         gender = d.get_gender(first_name)  # Guess the gender based on the first name
 
     bio = user.description
-
-    # for sym in special_symbols:
-    #    bio = bio.replace(sym, '')
-
     bio = remove_symbols(bio, False)
 
     followers_count = user.followers_count
@@ -311,6 +325,7 @@ for idx, user in enumerate(health_list_members):
         follower_following = ''
 
     # Add each member to the csv
+    print()
     print(idx, name, gender, qualification, location, created)
     if bio.strip() != '':
         print(bio)
@@ -318,7 +333,7 @@ for idx, user in enumerate(health_list_members):
     print()
     
     # Set limits on health influencer to filter the most popular and most active
-    if followers_count > 1000 and status_count > 1000:
+    if followers_count >= min_followers_count and status_count >= min_status_count:
 
         # Get status updates from the user
         try:
@@ -339,10 +354,12 @@ for idx, user in enumerate(health_list_members):
         count_medical = 0
         count_nutrition = 0
         count_RT = 0
+        count_valid = 0
 
         array_polarity = []
         array_sentiment = []
 
+        rows = []
         for twt in tweets_for_csv:
             text_tweet = remove_symbols(twt[3], False).replace('\n', ' ')  # Tweet text
 
@@ -350,10 +367,13 @@ for idx, user in enumerate(health_list_members):
             medi_w = []
             nutri_w = []
 
-            # Skip any tweets with RT in them
+            # Check if the tweet is a re-tweet
             if text_tweet[:3] == 'RT ':  # Check the first 3 letters of the tweet
                 count_RT += 1
-                # continue
+
+                if not accept_retweets:
+                    # Skip any tweets with RT in them
+                    continue
 
             # https://textblob.readthedocs.io/en/dev/quickstart.html#wordlists
             tweet = TextBlob(text_tweet)
@@ -374,32 +394,32 @@ for idx, user in enumerate(health_list_members):
             # print('Check', text_tweet)
 
             # Check for individual word matches
+
             for word in tweet_text_list:
                 word = word.lower().strip()
-
                 if word not in ignore_words:  # and word not in remove_titles
                     if not word.isnumeric():
                         if len(word) > 2 and 'http' not in word:
                             # if '...' not in word:  # This occurs often as the tweets are cut short and thus creates new words
                             wordDict[word] += 1
 
-                            if word in claim_words:
+                            if word in claim_words and word not in claim_w:
                                 # print('Claim', word)
                                 claim_w.append(word)
                                 bool_claim = True
-                                count_claim += 1
+                                # count_claim += 1
 
-                            if word in medical_words:
+                            if word in medical_words and word not in medi_w:
                                 # print('Med', word)
                                 medi_w.append(word)
                                 bool_medical = True
-                                count_medical += 1
+                                # count_medical += 1
 
-                            if word in nutrition_words:
+                            if word in nutrition_words and word not in nutri_w:
                                 # print('Nutri', word)
                                 nutri_w.append(word)
                                 bool_nutrition = True
-                                count_nutrition += 1
+                                # count_nutrition += 1
 
             # Check for longer phrases
             for claim_word in claim_words:
@@ -409,7 +429,7 @@ for idx, user in enumerate(health_list_members):
                         claim_w.append(claim_word)
                         wordDict[claim_word] += 1
                         bool_claim = True
-                        count_claim += 1
+                        # count_claim += 1
 
             for med_word in medical_words:
                 if len(med_word.split()) > 1:
@@ -418,7 +438,7 @@ for idx, user in enumerate(health_list_members):
                         medi_w.append(med_word)
                         wordDict[med_word] += 1
                         bool_medical = True
-                        count_medical += 1
+                        # count_medical += 1
 
             for nutr_word in nutrition_words:
                 if len(nutr_word.split()) > 1:
@@ -427,11 +447,23 @@ for idx, user in enumerate(health_list_members):
                         nutri_w.append(nutr_word)
                         wordDict[nutr_word] += 1
                         bool_nutrition = True
-                        count_nutrition += 1
+                        # count_nutrition += 1
+
+            if bool_claim:
+                count_claim += 1
+
+            if bool_medical:
+                count_medical += 1
+
+            if bool_nutrition:
+                count_nutrition += 1
+
 
             # print(count_retrieved, bool_claim, bool_medical, bool_nutrition, twt)
-            # if bool_claim and (bool_medical or bool_nutrition):
-            if True:
+            if bool_claim and (bool_medical or bool_nutrition):
+            # if True:
+                count_valid += 1
+
                 array_polarity.append(tweet.sentiment.polarity)
                 array_sentiment.append(tweet.sentiment.subjectivity)
 
@@ -450,24 +482,34 @@ for idx, user in enumerate(health_list_members):
                     # print('Nutri:', nutri_str)
 
                 check_claim = [bool_claim, bool_medical, bool_nutrition, claim_str, medi_str, nutri_str, tweet.sentiment.polarity, tweet.sentiment.subjectivity]
-                row = check_claim + twt  # check_claim.extend(twt)
-                c_tweets.writerow(row)
+                rows.append(check_claim + twt)  # check_claim.extend(twt)
 
                 print(name + ":", text_tweet)
-                print('Claim', claim_str, 'Medi', medi_str, 'Nutri', nutri_str)  # type(check_claim), type(row))
+                print('Claim:', claim_str, 'Medi:', medi_str, 'Nutri:', nutri_str)  # type(check_claim), type(row))
 
-                if len(claim_w) + len(medi_w) + len(nutri_w) > 0:
-                    print()
+                #if len(claim_w) + len(medi_w) + len(nutri_w) > 0:
+                #    print()
 
             count_retrieved += 1
 
-        print('Retrieved:', count_retrieved, 'RT', count_RT, 'Claims:', count_claim, 'Medical:', count_medical, 'Nutrition:', count_nutrition)
-        print()
+        if count_valid >= min_count_valid:
+            # Only save the rows if there are enough valid claims
+            for row in rows:
+                # print(row)
+                c_tweets.writerow(row)
+            print('Retrieved:', count_retrieved, 'RT', count_RT, 'Claims:', count_claim, 'Medical:', count_medical, 'Nutrition:', count_nutrition)
+        else:
+            print('Not enough valid tweets', count_valid, min_count_valid)
 
         # Set the minimum number of tweets you'll allow for each person. Make sure there is always a claim, and then a medical or nutrition keyword.
-        if count_retrieved > 9 and count_claim > 0 and (count_medical + count_nutrition) > 0:
-            polarity = statistics.median(array_polarity)
-            sentiment = statistics.median(array_sentiment)
+        if count_retrieved >= min_count_retrieved and count_valid >= min_count_valid:  # count_claim > 0 and (count_medical + count_nutrition) > 0:
+
+            if len(array_polarity) > 0:
+                polarity = statistics.median(array_polarity)
+                sentiment = statistics.median(array_sentiment)
+            else:
+                polarity = None
+                sentiment = None
 
             row = [name, clean_name, screen_name, gender, qualification, bio, polarity, sentiment, followers_count, following_count, status_follower, follower_following, created, location, status_count, user_url, count_retrieved, count_RT, count_claim, count_medical, count_nutrition]
             c_bio.writerow(row)
@@ -506,40 +548,90 @@ print()
 print(df)
 print()
 
-x_axis = ['status_count', 'count_nutrition', 'count_claim', 'count_claim', 'count_retrieved', 'count_retrieved', 'sentiment', 'followers_count']
-y_axis = ['followers_count', 'count_medical', 'count_nutrition', 'count_medical', 'count_claim', 'count_RT', 'polarity', 'following_count']
+x_axis = ['status_count', 'count_nutrition', 'count_claim', 'count_claim', 'count_retrieved', 'count_retrieved', 'sentiment', 'followers_count', 'followers_count', 'followers_count', 'followers_count', 'followers_count']
+y_axis = ['followers_count', 'count_medical', 'count_nutrition', 'count_medical', 'count_claim', 'count_RT', 'polarity', 'following_count', 'polarity', 'sentiment', 'count_medical', 'count_nutrition']
 
-for i, x in enumerate(x_axis):
-    y = y_axis[i]
-    plt.figure()
+gender_cat = [['male', 'mostly_male'], ['female', 'mostly_female'], ['organisation'], ['unknown', 'andy']]
+for gen in gender_cat:
+    for i, x in enumerate(x_axis):
+        y = y_axis[i]
+        plt.figure()
 
-    # Break up the plot into gender categories
-    df_male = df[df['gender'].isin(['male', 'mostly_male'])]
-    df_female = df[df['gender'].isin(['female', 'mostly_female'])]
-    df_org = df[df['gender'].isin(['organisation'])]
-    df_unknown = df[df['gender'].isin(['unknown', 'andy'])]
+        # Break up the plot into gender categories
+        '''
+        df_male = df[df['gender'].isin(['male', 'mostly_male'])]
+        df_female = df[df['gender'].isin(['female', 'mostly_female'])]
+        df_org = df[df['gender'].isin(['organisation'])]
+        df_unknown = df[df['gender'].isin(['unknown', 'andy'])]
+        '''
 
-    try:
-        # print('string', x, type(x), y, type(y))
-        plt.scatter(df_male[x], df_male[y], color='blue', label='men')
-        plt.scatter(df_female[x], df_female[y], color='red', label='women')
-        plt.scatter(df_org[x], df_org[y], color='orange', label='organisations')
-        plt.scatter(df_unknown[x], df_unknown[y], color='green', label='unknown')
-    except Exception as e:
-        # exc = e
-        print(e)
-        print(x)
-        print(y)
-        tb_str = ''.join(traceback.format_exception(None, e, e.__traceback__))
-        print(tb_str)
+        df_gender = df[df['gender'].isin(gen)]
 
-    # Titles and labels for the scatter plot
-    plt.title(x + ' vs ' + y, fontsize=20)
-    plt.xlabel(x, fontsize=15)  # '← Negative — — — — — — Positive →'
-    plt.ylabel(y, fontsize=15)  # ← Facts — — — — — — — Opinions →
-    plt.legend(loc='upper left')
-    plot_name = (str(x) + ' ' + str(y)).replace(':', '_')
-    plt.savefig(plot_name + '.png')
+        if gen == gender_cat[0]:
+            plt_label = 'men'
+            plt_color = 'blue'
+        if gen == gender_cat[1]:
+            plt_label = 'women'
+            plt_color = 'red'
+        if gen == gender_cat[2]:
+            plt_label = 'organisations'
+            plt_color = 'orange'
+        if gen == gender_cat[3]:
+            plt_label = 'unknown'
+            plt_color = 'green'
+
+        try:
+            # print('string', x, type(x), y, type(y))
+
+            plt.scatter(df_gender[x], df_gender[y], s=9, color=plt_color, label=plt_label)
+
+            '''
+            plt.scatter(df_male[x], df_male[y], s=9, color='blue', label='men')
+            plt.scatter(df_female[x], df_female[y], s=9, color='red', label='women')
+            plt.scatter(df_org[x], df_org[y], s=9, color='orange', label='organisations')
+            plt.scatter(df_unknown[x], df_unknown[y], s=9, color='green', label='unknown')
+            '''
+
+            for X, Y, Z in zip(df_gender[x], df_gender[y], df_gender['name']):
+
+                plt.annotate('{}'.format(Z), xy=(X, Y), xytext=(-3, 3), fontsize=9, ha='right', textcoords='offset points')
+
+        except Exception as e:
+            # exc = e
+            print(e)
+            print(x)
+            print(y)
+            tb_str = ''.join(traceback.format_exception(None, e, e.__traceback__))
+            print(tb_str)
+
+        # Titles and labels for the scatter plot
+        plt.title((twitter_health_list + ':' + plt_label + '\n' + x + ' vs ' + y).title())
+        plt.xlabel(x)  # '← Negative — — — — — — Positive →'
+        plt.ylabel(y)  # ← Facts — — — — — — — Opinions →
+        plt.rc('axes', titlesize=14)    # fontsize of the axes title
+        plt.rc('axes', labelsize=14)    # fontsize of the x and y labels
+        plt.rc('xtick', labelsize=10)   # fontsize of the tick labels
+        plt.rc('ytick', labelsize=10)   # fontsize of the tick labels
+        plt.rc('legend', fontsize=12)   # legend fontsize
+        plt.rc('figure', titlesize=20)  # fontsize of the figure title
+
+        if x == 'followers_count' or x == 'following_count' or x == 'status_count':
+            plt.xscale('log')
+        else:
+            plt.xscale('linear')
+
+        if y == 'followers_count' or y == 'following_count' or y == 'status_count':
+            plt.yscale('log')
+        else:
+            plt.yscale('linear')
+
+        plt.legend(loc='lower right')
+        plot_name = (twitter_health_list + '_' + str(x) + '_' + str(y) + '_' + plt_label).replace(':', '_')
+        # plt.figure(figsize=(12, 12), dpi=300)
+        plt.rcParams["figure.figsize"] = [12, 12]
+        plt.savefig(plot_name + '.png', dpi=300)
+        plt.cla()
+        plt.close()
 
 # Create a scatter plot
 
@@ -566,24 +658,32 @@ outfile = "word_freq-" + twitter_health_list + "-" + date_time_string + ".csv"
 print()
 print('Saving', outfile)
 fp = open(outfile, encoding='utf-8-sig', mode='w', newline='')
-fp.write('Word,freq,list1,list2,list3\n')
+fp.write('word,freq,claim,medi,nutri,polarity,sentiment\n')
 
 sort_dict = sorted(wordDict.items(), key=lambda x: (x[1], x[0]), reverse=True)  # , reverse=True
 for tag, count in sort_dict:  # Sort the dictionary by most common words first
-
     word_list = []
+
+    claim_str = ''
+    medi_str = ''
+    nutri_str = ''
+
     if tag in claim_words:
-        word_list.append('claim')
+        claim_str = 'claim'
+        word_list.append(claim_str)
 
     if tag in medical_words:
-        word_list.append('medical')
+        medi_str = 'medical'
+        word_list.append(medi_str)
 
     if tag in nutrition_words:
+        nutri_str = 'nutrition'
         word_list.append('nutrition')
 
     if len(word_list) >= 1:
-        print(tag, count, word_list)
-        fp.write('{},{},{}\n'.format(tag.lower(), count, ', '.join(word_list)))
+        tweet = TextBlob(tag)
+        print(tag, count, word_list, tweet.sentiment.polarity, tweet.sentiment.subjectivity)
+        fp.write('{},{},{},{},{},{},{}\n'.format(tag.lower(), count, claim_str, medi_str, nutri_str, tweet.sentiment.polarity, tweet.sentiment.subjectivity))  # ', '.join(word_list)
     else:
         fp.write('{},{}\n'.format(tag.lower(), count))
 
