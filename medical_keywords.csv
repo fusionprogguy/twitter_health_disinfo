@@ -1,9 +1,3 @@
-(#apd)
-(#biochemistry)
-(#food
-(#metabolism)
-(#prevention)
-(#rd)tv/radio
 4-hydroxy-2-nonenal
 abdomen
 abdominal
@@ -63,6 +57,7 @@ ahpra
 ahww2017
 aicr
 aids
+airborne
 airquality
 airway obstruction
 airways
@@ -216,6 +211,7 @@ astigmatism
 astringents
 astrocytoma
 astrocytomas
+asymptomatic
 ataxia-telangiectasia
 atherosclerosis
 athletes
@@ -312,6 +308,7 @@ bone marrow
 boogers
 borborygmus
 botulism
+bowel
 bowelcancer
 bowels
 braces
@@ -355,6 +352,7 @@ cancerkindness
 cancerous
 cancerprevention
 cancerresearch
+cancers
 cancersurvivor
 canine teeth
 canker sore
@@ -382,6 +380,7 @@ cardiothoracic
 cardiotwitter
 cardiovascular
 cardioversion
+care
 carediscoverteach
 caries
 cartilage
@@ -393,6 +392,7 @@ cdc
 celiacdisease
 cell
 cells
+cellular
 cellulitis
 cerebellum
 cerebral
@@ -477,6 +477,7 @@ coccidioidomycosis
 cochlea
 codeine
 coenzyme-q10
+cognitive
 cohealth15
 cold
 cold-agglutinin
@@ -519,6 +520,7 @@ connective-tissue
 conscienhealth
 constipation
 contact lenses
+contact tracing
 contact-tracer
 contagion
 contagious
@@ -553,6 +555,7 @@ coughing
 coughs
 covid
 covid?19
+covid_19
 covid19
 covid-19
 covid19:
@@ -605,6 +608,7 @@ cystine
 cystinuria
 cysts
 cytoides
+cytokines
 cytokinestorm
 cytology
 cytomegalovirus
@@ -672,6 +676,7 @@ dislocation
 disorder
 disordered
 disorders
+distancing
 diuretic
 diverticula
 diverticulitis
@@ -830,6 +835,7 @@ eyeglasses
 eyehealth
 eyelids
 face
+facemasks
 factfad
 faint
 fallopian
@@ -876,6 +882,7 @@ flushot
 foamed
 follicularis
 followup
+food
 forehead
 foreign body
 fracture
@@ -899,6 +906,7 @@ gammaglobulins
 ganglioneuroblastoma
 ganglioneuroma
 gangrene
+gardasil
 gardasil vaccine
 gastric
 gastric juices
@@ -914,6 +922,7 @@ gaucher's
 gehrig's
 gelled
 gene
+geneediting
 gene-environment
 genes
 genetic
@@ -963,7 +972,9 @@ glycohemoglobin
 glycoside
 glycosides
 glycosylated hemoglobin test (hemoglobin a1c)
+glyphosate
 goiter
+gompertz
 gonadotropin
 gonadotropins
 gonads
@@ -1014,6 +1025,7 @@ hashimoto's
 hay fever
 hayfever
 hba1
+hba1c
 hdl
 headache
 headaches
@@ -1031,6 +1043,7 @@ healthforall
 healthier
 healthinequalities
 healthinformatics
+healthliteracy
 healthpolicy
 healthpromotion
 healthy
@@ -1105,12 +1118,15 @@ hives
 hodgkin's
 holistic
 homeopathy
+homocysteine
 homocystine
 homocystinuria
+hormonal
 hormone
 hormones
 hospital
 hospitalization
+hospitalizations
 hospitalized
 hospitals
 hospital's
@@ -1236,6 +1252,7 @@ immunotherapy
 immunotherapy and allergy shots
 impermissibility
 impetigo
+implants
 implementation
 impotence
 incontinence
@@ -1296,6 +1313,8 @@ intensive care unit
 interactions with drugs
 internalmedicine
 interstitial
+intervention
+interventions
 intestinal
 intestine
 intestines
@@ -1306,6 +1325,7 @@ intrahepatic
 intravascular
 intravenous
 intravenously
+invasive
 involuntary muscle
 ion
 iris
@@ -1421,6 +1441,7 @@ livercancer
 liverdisease
 livingwithms
 lluh
+lockdown
 loneliness
 long term survival
 longcovid
@@ -1479,6 +1500,7 @@ manganese
 marijuana
 marrow
 masculinization
+mask
 masks
 masks4all
 maskup
@@ -1557,6 +1579,7 @@ mers
 mesenteric
 mesentery
 metabolic
+metabolic disease
 metabolic health
 metabolically
 metabolism
@@ -1601,11 +1624,13 @@ mitochondria
 mitochondrial
 mitogen
 mitral
+mmr
 mmr vaccine
 mol
 molecular
 molecule
 monashheart
+monoclonal
 monocytes
 monocytic
 mononucleosis
@@ -1741,6 +1766,7 @@ neurogenic
 neuroglial
 neuroimage
 neuroimmunology
+neuroinflammation
 neurologic
 neurological
 neurological damage
@@ -1870,6 +1896,7 @@ outbreaks
 outgrowths
 outpatient
 outpatients
+ovarian
 ovariancancer
 overdose
 overdoses
@@ -1943,6 +1970,7 @@ patellae
 patents
 pathogen
 pathogenesis
+pathogenicpriming
 pathologic
 pathologist
 pathologists
@@ -2004,6 +2032,7 @@ ph
 pharma
 pharma intervention
 pharmabiotic
+pharmaceutical
 pharmaceuticals
 pharmacies
 pharmacist
@@ -2223,6 +2252,7 @@ rdap
 rdchat
 rdjc
 rdn
+rdtv/radio
 rduk
 reason
 recall
@@ -2238,6 +2268,7 @@ ref
 reflux
 refractory
 regenerative
+regimen
 register
 registerednutritionist
 registry
@@ -2455,6 +2486,7 @@ starch
 starchlike
 starchy
 stat
+statin
 statins
 stayhome
 std
@@ -2536,6 +2568,7 @@ syringomelia
 systolic
 t1d
 t2d
+t2diabetes
 tachycardia
 tamponade
 taste buds
@@ -2589,6 +2622,7 @@ thyroxine-binding
 tibio-fibular
 tingling
 tinnitus
+tissue
 tissue damage
 tissue sample
 tissues
@@ -2626,6 +2660,7 @@ treat
 treatable
 treated
 treatment
+treatments
 tremors
 trf
 tricuspid
@@ -2698,8 +2733,10 @@ urticaria
 uterine
 uterus
 vaccin
+vaccinate
 vaccinated
 vaccination
+vaccinations
 vaccine
 vaccine substitute
 vaccines
@@ -2724,6 +2761,7 @@ veins
 veins and arteries
 venereal
 venous
+ventilator
 ventricle
 ventricles
 vermiform
