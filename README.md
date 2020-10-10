@@ -104,7 +104,7 @@ The program requires three csv files with keywords:
 
 Popular keywords in the files are:
 
-1. Claims: research, healthy, support, better, data, review, because, evidence, must, never, cause, creates ...
+1. Claims: research, healthy, proves, unlikely, better, data, review, because, evidence, must, never, cause, creates ...
 
 2. Medical: covid19, healthy, coronavirus, patients, pandemic, cancer, disease, vaccine, heart, medical, diabetes, medicine, clinical ...
 
@@ -140,6 +140,45 @@ It has a claim "is giving people what they want", but there is no keyword for th
 
 All of the keyword lists can be improved, but it takes time to find words which may be missing. The best way to improve them is to check the tweets to see if they wrongly trigger as False when you believe they should be included. 
 
+
+### Polarity and Sentiment
+
+The fields for Polarity and Sentiment are calculated using the TextBlob library. 
+https://textblob.readthedocs.io/en/dev/quickstart.html
+
+Polarity is a number between -1 and +1, where a large negative number indicates a negative feeling and a large positive number indicates a positive feeling. 
+Sentiment is a number between 0 and 1, where a small number means more objective and a higher number means more subjective.
+
+Both word lists are fairly crude and limited - for instance a negation is not recognised properly. "Not the best" might be intereted as "best", for instance. I extracted a few claim words to illustrate polarity and sentiment. 
+
++--------------+--------------+-------------+
+|     word     |   polarity   |  sentiment  |
++--------------+--------------+-------------+
+| worst        |           -1 |           1 |
+| insane       |           -1 |           1 |
+| shocking     |           -1 |           1 |
+| outrageous   |           -1 |           1 |
+| useless      |         -0.5 |         0.2 |
+| fail         |         -0.5 |         0.3 |
+| vulnerable   |         -0.5 |         0.5 |
+| random       |         -0.5 |         0.5 |
+| unlikely     |         -0.5 |         0.5 |
+| flawed       |         -0.5 |         0.5 |
+| skeptical    |         -0.5 |         0.5 |
+| expensive    |         -0.5 |         0.7 |
+| corrupt      |         -0.5 |           1 |
+| complicated  |         -0.5 |           1 |
+| guilty       |         -0.5 |           1 |
+| questionable |         -0.5 |           1 |
+| few          |         -0.2 |         0.1 |
+| less         | -0.166666667 | 0.066666667 |
+| remarkable   |         0.75 |        0.75 |
+| successful   |         0.75 |        0.95 |
+| greatly      |          0.8 |        0.75 |
+| incredible   |          0.9 |         0.9 |
+| the best     |            1 |         0.3 |
+| perfect      |            1 |           1 |
++--------------+--------------+-------------+
 
 ## Output
 
