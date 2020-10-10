@@ -151,9 +151,9 @@ Sentiment is a number between 0 and 1, where a small number means more objective
 
 Both word lists are fairly crude and limited - for instance a negation is not recognised properly. "Not the best" might be intereted as "best", for instance. I extracted a few claim words to illustrate polarity and sentiment. 
 
-+--------------+--------------+-------------+
+|--------------+--------------+-------------|
 |     word     |   polarity   |  sentiment  |
-+--------------+--------------+-------------+
+|--------------+--------------+-------------|
 | worst        |           -1 |           1 |
 | insane       |           -1 |           1 |
 | shocking     |           -1 |           1 |
@@ -178,7 +178,7 @@ Both word lists are fairly crude and limited - for instance a negation is not re
 | incredible   |          0.9 |         0.9 |
 | the best     |            1 |         0.3 |
 | perfect      |            1 |           1 |
-+--------------+--------------+-------------+
+
 
 ## Output
 
